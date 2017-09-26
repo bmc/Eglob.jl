@@ -1,3 +1,21 @@
+_HELPERS_INCLUDED_ = true
+
+"""
+    createfiles(dir, "foo/x.c", "bar/y.c")
+
+Given a bunch of parent directories, create subdirectories and empty files
+within it.
+"""
+function createfiles(dir::AbstractString, files...)
+    filepaths = [joinpath(dir, f) for f in files]
+    for path in filepaths
+        dir = dirname(path)
+        mkpath(dir)
+        touch(path)
+    end
+end
+
+
 """
     withtempfiles("foo/x.c", "bar/y.c") do tempdir, files
         # your code
@@ -9,13 +27,7 @@ call a supplied function, and then clean up the directory. Used for testing.
 function withtempfiles(f::Function, files::AbstractString...)
     tempdir = mktempdir()
     try
-        filepaths = [joinpath(tempdir, f) for f in files]
-        for path in filepaths
-            dir = dirname(path)
-            mkpath(dir)
-            touch(path)
-        end
-
+        createfiles(tempdir, files...)
         f(tempdir, files)
     finally
         rm(tempdir, force=true, recursive=true)

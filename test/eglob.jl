@@ -42,22 +42,32 @@ function run_eglob_tests(globber::Function)
     files = ["aaa/kjhasd.txt", "aaa/bbb/ioua.txt", "abc/ccc/ddd/foo.c",
              "xyz/ddd/eee/bar.java", "abc/ddd/eee/baz.c", "aaaa/quux.java",
              "abcc/ccc/ddd/foo.c", "bbb/ccccccc/ddddddd/e/hello.java",
-             "bbb/iswadf/abs.txt", "ghsadfkjhasdf/kd/8wequ/wog.txt"]
+             "bbb/iswadf/abs.txt", "ghsadfkjhasdf/kd/8wequ/wog.txt",
+             "ba/lkjjd/yuio/poiu/fred",
+             "argh/this/is/a/silly/path/to/a//file.txt"]
     withtempfiles(files...) do tempdir, files
-
-        data = [
-            # pattern              # expected
-            ("a??/*/[cd]*/**/*.c", ["abc/ccc/ddd/foo.c"]),
-            ("[ab]*/**/*.java",    ["aaaa/quux.java",
-                                    "bbb/ccccccc/ddddddd/e/hello.java"]),
-            ("[^a]*/**/*.txt",     ["bbb/iswadf/abs.txt",
-                                    "ghsadfkjhasdf/kd/8wequ/wog.txt"]),
-        ]
-         
         cd(tempdir) do
-            for (pattern, expected) in data
-                @test Set(globber(pattern)) == Set(expected)
-            end
+            @test Set(globber("a??/*/[cd]*/**/*.c")) == Set([
+                "abc/ccc/ddd/foo.c"
+            ])
+            @test Set(globber("[ab]*/**/*.java")) == Set([
+                "aaaa/quux.java",
+                "bbb/ccccccc/ddddddd/e/hello.java"
+            ])
+            @test Set(globber("[!a]*/**/*.txt")) == Set([
+                "bbb/iswadf/abs.txt",
+                "ghsadfkjhasdf/kd/8wequ/wog.txt"
+            ])
+            @test Set(globber("[ab][!ga]*/**/f*")) == Set([
+                "abcc/ccc/ddd/foo.c",
+                "abc/ccc/ddd/foo.c",
+                "argh/this/is/a/silly/path/to/a/file.txt"
+            ])
+            @test Set(globber("?[!b]*/**/f*")) == Set([
+                "argh/this/is/a/silly/path/to/a/file.txt",
+                "ba/lkjjd/yuio/poiu/fred"
+            ])
+            @test Set(globber("[agx][!z]*/**/g*")) == Set{String}([])
         end
     end
 end

@@ -3,8 +3,8 @@ __precompile__()
 """
     import Glob: eglob, eglobt
 
-Provides extended, globbing functions globbing functions that support a
-recursive "**" wildcard pattern. This package is built on top of
+Provides extended globbing functions that support a recursive "**" wildcard
+pattern. This package is built on top of
 [Glob.lj](https://github.com/vtjnash/Glob.jl).
 
 * `eglob()`: An extended globbing function that supports leading `~` expansion
@@ -15,7 +15,9 @@ See the docs for the individual functions for more information.
 """
 module Eglob
 
-export fnmatch, eglob, glob, eglobt
+export eglob, eglobt
+
+using Glob: glob
 
 pathsep = Base.Filesystem.path_separator
 
