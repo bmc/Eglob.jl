@@ -1,0 +1,4 @@
+exclude: run-markdown.sh
+highligher: rouge
+codeurl: http://bmc.github.com/thing
+markdown: kramdown
