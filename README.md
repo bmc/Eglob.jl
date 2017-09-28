@@ -12,6 +12,10 @@ and by [Zsh](http://www.zsh.org/). This package is built on top of
   and a recursive `**` wildcard pattern
 * `eglobt()`: A Task- and Channel-based version of `eglob()`.
 
+## Documentation
+
+[Here you go.](http://software.clapper.org/Eglob.jl/)
+
 ## Installation
 
 This package isn't yet registered. Until it is, use:
