@@ -4,5 +4,6 @@ import Eglob
 
 using Documenter
 
-makedocs(
-)
+makedocs()
+cp("build/index.md", "index.md")
+
