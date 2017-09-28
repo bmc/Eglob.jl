@@ -1,10 +1,13 @@
 __precompile__()
 
-"""
-    import Glob: eglob, eglobt
 
-Provides extended globbing functions that support a recursive "**" wildcard
-pattern. This package is built on top of
+"""
+    import Eglob: eglob, eglobt
+
+`Eglob` provides extended globbing functions that support a recursive `**`
+wildcard pattern, similar to the `**` supported by the
+[Bash](https://www.gnu.org/software/bash/) (version 4+) `globstar` option
+and by [Zsh](http://www.zsh.org/). This package is built on top of
 [Glob.lj](https://github.com/vtjnash/Glob.jl).
 
 * `eglob()`: An extended globbing function that supports leading `~` expansion
@@ -21,21 +24,19 @@ using Glob: glob
 
 pathsep = Base.Filesystem.path_separator
 
-"""
-    _pathsplit(path)
-
-    Split a path into an array of path components, using the file separator
-    ('/' on POSIX systems, '\' on Windows) that's appropriate for the
-    underlying operating system. Does not take drive letters into account.
-    If there's a Windows drive letter in the path, it'll end up with the
-    first component.
-
-    **Parameters**
-
-    * `path`: path to split. Can be relative or absolute
-
-    **Returns** an array of path components
-"""
+#     _pathsplit(path)
+# 
+# Split a path into an array of path components, using the file separator
+# ('/' on POSIX systems, '\' on Windows) that's appropriate for the
+# underlying operating system. Does not take drive letters into account.
+# If there's a Windows drive letter in the path, it'll end up with the
+# first component.
+# 
+# **Parameters**
+# 
+# * `path`: path to split. Can be relative or absolute
+# 
+# **Returns** an array of path components
 function _pathsplit(path::AbstractString)
     split(path, Base.Filesystem.path_separator_re, keep=false)
 end
@@ -110,6 +111,7 @@ for (i, match) in enumerate(c)
     end
     append!(matches, [match])
 end
+```
 
 Example 3:
 
@@ -117,6 +119,7 @@ Example 3:
 # Consume all matches. This is exactly what eglob() does.
 matches = [match for match in eglobt("test/**/*.py")]
 ```
+
 """
 function eglobt(pattern::AbstractString)
 

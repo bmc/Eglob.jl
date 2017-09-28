@@ -2,8 +2,10 @@
 
 [![Build Status](https://travis-ci.org/bmc/Eglob.jl.svg?branch=master)](https://travis-ci.org/bmc/Eglob.jl)
 
-Provides extended globbing functions that support a recursive "**" wildcard
-pattern. This package is built on top of
+`Eglob` provides extended globbing functions that support a recursive `**`
+wildcard pattern, similar to the `**` supported by the
+[Bash](https://www.gnu.org/software/bash/) (version 4+) `globstar` option
+and by [Zsh](http://www.zsh.org/). This package is built on top of
 [Glob.lj](https://github.com/vtjnash/Glob.jl).
 
 * `eglob()`: An extended globbing function that supports leading `~` expansion
