@@ -18,8 +18,6 @@ and by [Zsh](http://www.zsh.org/). This package is built on top of
 
 ## Installation
 
-This package isn't yet registered. Until it is, use:
-
 ```julia
-Pkg.clone("git://github.com/bmc/Eglob.jl.git")
+Pkg.add("Eglob")
 ```
