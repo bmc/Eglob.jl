@@ -5,7 +5,7 @@
 
 
 
-<a id='Eglob' href='#Eglob'>#</a>
+<a id='Eglob' href='#Eglob'>§</a>
 **`Eglob`** &mdash; *Module*.
 
 
@@ -22,9 +22,9 @@ import Eglob: eglob, eglobt
 See the docs for the individual functions for more information.
 
 
-<a target='_blank' href='https://github.com/bmc/Eglob.jl/tree/4f06db8ae3ad03368cbc7c036a3c3b67eb98e10a/src/Eglob.jl#L4-L18' class='documenter-source'>source</a><br>
+<a target='_blank' href='https://github.com/bmc/Eglob.jl/tree/5029888468ded762a0e9657521fe71e1e4ff7ea9/src/Eglob.jl#L4-L18' class='documenter-source'>source</a><br>
 
-<a id='Eglob.eglob' href='#Eglob.eglob'>#</a>
+<a id='Eglob.eglob' href='#Eglob.eglob'>§</a>
 **`Eglob.eglob`** &mdash; *Function*.
 
 
@@ -53,9 +53,9 @@ An extended globbing function that supports all the wildcards of the `glob()` fu
 **Note:** This function expands the entire pattern before returning. If you're expanding a pattern in a deeply-nested directory tree, `eglob()` can take awhile to return. If you want to process the results in a way that allows you to stop before seeing all of them, use `eglobt()`.
 
 
-<a target='_blank' href='https://github.com/bmc/Eglob.jl/tree/4f06db8ae3ad03368cbc7c036a3c3b67eb98e10a/src/Eglob.jl#L44-L69' class='documenter-source'>source</a><br>
+<a target='_blank' href='https://github.com/bmc/Eglob.jl/tree/5029888468ded762a0e9657521fe71e1e4ff7ea9/src/Eglob.jl#L44-L69' class='documenter-source'>source</a><br>
 
-<a id='Eglob.eglobt' href='#Eglob.eglobt'>#</a>
+<a id='Eglob.eglobt' href='#Eglob.eglobt'>§</a>
 **`Eglob.eglobt`** &mdash; *Function*.
 
 
@@ -110,6 +110,5 @@ matches = [match for match in eglobt("test/**/*.py")]
 ```
 
 
-<a target='_blank' href='https://github.com/bmc/Eglob.jl/tree/4f06db8ae3ad03368cbc7c036a3c3b67eb98e10a/src/Eglob.jl#L74-L123' class='documenter-source'>source</a><br>
-
+<a target='_blank' href='https://github.com/bmc/Eglob.jl/tree/5029888468ded762a0e9657521fe71e1e4ff7ea9/src/Eglob.jl#L74-L123' class='documenter-source'>source</a><br>
 
