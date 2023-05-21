@@ -1,5 +1,10 @@
 # An extended globbing package for Julia
 
+**WARNING**: This repo is _abandonware_. I no longer use Julia. I do not currently maintain
+this repo, and I have no plans to do so in the future.
+
+----
+
 [![Build Status](https://travis-ci.org/bmc/Eglob.jl.svg?branch=master)](https://travis-ci.org/bmc/Eglob.jl)
 
 `Eglob` provides extended globbing functions that support a recursive `**`
